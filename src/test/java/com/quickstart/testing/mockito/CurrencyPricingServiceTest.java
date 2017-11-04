@@ -6,10 +6,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class CurrencyPricingServiceTest {
 
@@ -33,6 +34,22 @@ public class CurrencyPricingServiceTest {
 
         assertTrue(BigDecimal.valueOf(189.25).compareTo(p.getPrice()) == 0);
     }
+    @Test
+    public void shouldTotalPriceByCurrency() {
+        when(pricingRepository.exchangeRate(Mockito.any(), Mockito.any())).
+                thenReturn(BigDecimal.valueOf(18.925));
+
+        List<Price> prices = new ArrayList<>();
+        prices.add(new Price(BigDecimal.valueOf(20.0), new MexicoCurrency()));
+        prices.add(new Price(BigDecimal.valueOf(25.0), new MexicoCurrency()));
+        prices.add(new Price(BigDecimal.valueOf(30.0), new MexicoCurrency()));
+        prices.add(new Price(BigDecimal.valueOf(35.0), new MexicoCurrency()));
+
+        final Price p = currencyPricingService.totalPriceByCurrency(prices, new UsaCurrency());
+
+        verify(pricingRepository, times(4)).
+                exchangeRate(Mockito.any(), Mockito.any());
+        assertTrue(BigDecimal.valueOf(2081.75).compareTo(p.getPrice()) == 0);    }
 
 
 }
