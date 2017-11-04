@@ -62,4 +62,13 @@ public class CurrencyPricingServiceTest {
         assertTrue(BigDecimal.valueOf(0).compareTo(p.getPrice()) == 0);
     }
 
+    @Test
+    public void shouldSpyList() {
+        List<String> list = new ArrayList<>();
+        List<String> spy = spy(list);
+
+        doReturn("foo").when(spy).get(0);
+        assertEquals("foo", spy.get(0));
+    }
+
 }
