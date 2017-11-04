@@ -20,5 +20,4 @@ public class ComplexObjectTest {
        assertEquals(complexObject, another);
        assertEquals("this is sparta", another.toString());
     }
-
 }

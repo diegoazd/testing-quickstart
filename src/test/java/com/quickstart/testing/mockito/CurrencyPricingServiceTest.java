@@ -49,7 +49,17 @@ public class CurrencyPricingServiceTest {
 
         verify(pricingRepository, times(4)).
                 exchangeRate(Mockito.any(), Mockito.any());
-        assertTrue(BigDecimal.valueOf(2081.75).compareTo(p.getPrice()) == 0);    }
+        assertTrue(BigDecimal.valueOf(2081.75).compareTo(p.getPrice()) == 0);
+    }
 
+    @Test
+    public void shouldTotal0() {
+        List<Price> emptyPrices = new ArrayList<>();
+        final Price p = currencyPricingService.totalPriceByCurrency(emptyPrices, new UsaCurrency());
+
+        verify(pricingRepository, times(0)).
+                exchangeRate(Mockito.any(), Mockito.any());
+        assertTrue(BigDecimal.valueOf(0).compareTo(p.getPrice()) == 0);
+    }
 
 }
