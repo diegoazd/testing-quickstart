@@ -14,4 +14,16 @@ public class MainClass {
         final String concatenation = interaction.complexMethod(a, param);
         return concatenation == null ? 0 : concatenation.length();
     }
+
+    public void complexInteraction(int a, int b) {
+        final int c = a - b;
+
+        interaction.method1(a);
+        if(interaction.isFirstCase(a,b,c)) {
+            interaction.method1(a);
+        }else {
+            interaction.method2(b, c);
+            interaction.method3(c);
+        }
+    }
 }
