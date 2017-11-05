@@ -1,0 +1,25 @@
+!tape
+name: v1/mockTape
+interactions:
+- recorded: 2017-11-05T00:22:14.225Z
+  request:
+    method: GET
+    uri: http://www.mocky.io/v2/59fe4f7c330000590b1349d9
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Content-Length: '0'
+      Host: www.mocky.io
+      Proxy-Connection: keep-alive
+      User-Agent: Jersey/2.25 (HttpUrlConnection 1.8.0_131)
+  response:
+    status: 200
+    headers:
+      Connection: keep-alive
+      Content-Length: '26'
+      Content-Type: application/json
+      Date: Sun, 05 Nov 2017 00:22:14 GMT
+      Server: Cowboy
+    body: |-
+      {
+       "msg": "Hello world!"
+      }
