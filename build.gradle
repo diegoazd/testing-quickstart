@@ -16,8 +16,17 @@ repositories {
 }
 
 dependencies {
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.25'
+    compile group: 'org.springframework', name: 'spring-core', version: '5.0.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '5.0.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '5.0.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-expression', version: '5.0.0.RELEASE'
+
     testCompile 'junit:junit:4.12'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '5.0.0.RELEASE'
+    testCompile 'software.betamax:betamax-junit:2.0.1'
+
 }
 
 task wrapper(type: Wrapper) {
