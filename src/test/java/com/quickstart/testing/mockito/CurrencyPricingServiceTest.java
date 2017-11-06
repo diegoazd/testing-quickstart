@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,6 @@ public class CurrencyPricingServiceTest {
 
     CurrencyPricingService currencyPricingService;
 
-    @Mock
     PricingRepository pricingRepository = mock(PricingRepository.class);
 
     @Before
@@ -34,6 +32,7 @@ public class CurrencyPricingServiceTest {
 
         assertTrue(BigDecimal.valueOf(189.25).compareTo(p.getPrice()) == 0);
     }
+
     @Test
     public void shouldTotalPriceByCurrency() {
         when(pricingRepository.exchangeRate(Mockito.any(), Mockito.any())).
@@ -70,5 +69,4 @@ public class CurrencyPricingServiceTest {
         doReturn("foo").when(spy).get(0);
         assertEquals("foo", spy.get(0));
     }
-
 }
