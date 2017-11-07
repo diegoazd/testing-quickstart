@@ -1,6 +1,5 @@
 package com.quickstart.testing.unit;
 
-import com.quickstart.testing.mock.rest.RestService;
 import com.quickstart.testing.mock.rest.RestServiceTest;
 import com.quickstart.testing.mockito.CurrencyPricingServiceTest;
 import org.junit.runner.RunWith;
